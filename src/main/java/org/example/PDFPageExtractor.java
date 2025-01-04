@@ -14,13 +14,13 @@ public class PDFPageExtractor {
 
             for (int pageNumber : pages) {
                 if (pageNumber > 0 && pageNumber <= inputDocument.getNumberOfPages()) {
-                    outputDocument.addPage(inputDocument.getPage(pageNumber - 1));
+                    outputDocument.importPage(inputDocument.getPage(pageNumber - 1));
                 } else {
                     System.err.println("Strona " + pageNumber + " nie istnieje w pliku PDF.");
                 }
             }
 
-            outputDocument.save(outputFilePath, CompressParameters.NO_COMPRESSION);
+            outputDocument.save(outputFilePath);
         }
     }
 
